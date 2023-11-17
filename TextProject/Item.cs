@@ -8,32 +8,39 @@ namespace TextProject
         void UseItem();
     }
 
-    class Items 
+    public class Item
     {
         protected string name;
         protected int Prize;
         protected Player player;
+        protected Pokemon1 poketmon;
         //protected Poketmon poketmon;
-
-        public Items() {
+        public string GetName { get { return name; } }
+        public int GetPrize { get { return Prize; } }
+        public Item()
+        {
             name = "";
             Prize = 0;
         }
 
-        public void GetPlayer() {
+        public void GetPlayer(Player User)
+        {
             // TODO GetPlayer 
+            this.player = User;
             // this.player = GetPlayer();
-        }     
+        }
 
-        public void GetPoketmon() {
+        public void GetPoketmon(Pokemon1 pokemon1)
+        {
             // TODO GetPoketmon
+            this.poketmon = pokemon1;
             // this.poketmon = GetPoketmon;
         }
 
-        
+
     }
 
-    class Poketball : Items, IUseItem
+    class Poketball : Item, IUseItem        //포켓 볼
     {
         public Poketball()
         {
@@ -41,7 +48,8 @@ namespace TextProject
             Prize = 300;
         }
 
-        public void UseItem( ) {
+        public void UseItem()
+        {
             /*
             //일정 체력의 이하가 될 수록 잡힐 확률이 증가.
             
@@ -54,54 +62,79 @@ namespace TextProject
         }
     }
 
-    class SmallPotion : Items, IUseItem
+    class SmallPotion : Item, IUseItem      //작은 회복 물약
     {
         private int RecoveryHP;
 
-        public SmallPotion() {
+        public SmallPotion()
+        {
             RecoveryHP = 30;
         }
-        public void UseItem( ) {
-            /*
-            player.Hp = RecoveryHP;
-            */
-
+        public void UseItem()
+        {
+            Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
+            if (!poketmon.FallDown)
+            {        //기절 상태가 아닐 때
+                if (poketmon.hp + RecoveryHP > poketmon.fullHp)
+                {    // 기본 체력에서 물약을 먹었을 때 최대체력을 넘기는 경우
+                    poketmon.hp = poketmon.fullHp;
+                }
+                else if (poketmon.hp + RecoveryHP < poketmon.fullHp)
+                {     // 최대 체력을 안넘기는 경우
+                    poketmon.hp += RecoveryHP;
+                }
+            }
+            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
         }
     }
 
-    class BigPotion : Items, IUseItem
+    class BigPotion : Item, IUseItem        //큰 회복 물약
     {
         private int RecoveryHP;
 
-        public BigPotion() {
+        public BigPotion()
+        {
             RecoveryHP = 50;
         }
-        public void UseItem( ) {
-            /*
-            player.Hp = RecoveryHP;
-            */
+        public void UseItem()
+        {
+            Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
+            if (!poketmon.FallDown)
+            {        //기절 상태가 아닐 때
+                if (poketmon.hp + RecoveryHP > poketmon.fullHp)
+                {    // 기본 체력에서 물약을 먹었을 때 최대체력을 넘기는 경우
+                    poketmon.hp = poketmon.fullHp;
+                }
+                else if (poketmon.hp + RecoveryHP < poketmon.fullHp)
+                {     // 최대 체력을 안넘기는 경우
+                    poketmon.hp += RecoveryHP;
+                }
+            }
+            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
         }
-    }
 
-    class WeirdCandy : Items, IUseItem {
-        public void UseItem() {
-        /*
-        이상한 사탕 : 포켓몬의 레벨을 1 올려준다
-        포켓몬의 현재 레벨에서 남은 경험치 만큼을 올려준다. 
-        */
 
+        class WeirdCandy : Item, IUseItem
+        {     //이상한 사탕
+            public void UseItem()
+            {
+                //
+                poketmon.level++;           //1레벨 증가
+                                            //아이템을 사용한 뒤 포켓몬의 레벨에 따라 진화여부를 결정하는 함수 호출하기
+            }
         }
+
+
     }
-
-
-
-
-   
-
-    /*
-    포켓몬 볼
-    작은 체력 회복
-    큰 체력 회복
-    상태이상 제거
-    */
+    
 }
+
+
+
+        /*
+        포켓몬 볼
+        작은 체력 회복
+        큰 체력 회복
+        상태이상 제거
+        */
+    
