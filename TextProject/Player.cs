@@ -39,6 +39,7 @@ namespace TextProject
     public class Player
     {
         public string name;
+        public int money;
         public List<Item> Inventory = new List<Item>();
         public List<Pokemon1> MyPokemon = new List<Pokemon1>();
         public Player(string name)

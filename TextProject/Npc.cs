@@ -8,8 +8,8 @@ namespace TextProject
 {
     public class Npc
     {
-        
-      public string name;
+
+        public string name;
 
         public void NpcCommet(Player player)
         {

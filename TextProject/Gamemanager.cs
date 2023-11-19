@@ -8,7 +8,7 @@ namespace TextProject
 {
     internal class Gamemanager
     {
-    string gameName = "Pokemon World";
+        string gameName = "Pokemon World";
 
         public void RunGame()
         {
@@ -16,7 +16,7 @@ namespace TextProject
             StartOrExit();
 
         }
-       void StartDisplay()
+        void StartDisplay()
         {
             Console.Clear();
             Console.WriteLine("**********************************************************************************************");
@@ -45,27 +45,27 @@ namespace TextProject
             Console.Clear();
         }
 
-        void StartOrExit() 
+        void StartOrExit()
         {
-            
+
             Console.WriteLine("                                     1. 게임시작");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("                                       2 나가기");
             int choice = int.Parse(Console.ReadLine());
-            
+
             switch (choice)
             {
-                    case 1:
+                case 1:
                     Console.Clear();
                     StartGame();
                     break;
 
-                    case 2:
+                case 2:
                     Console.WriteLine("게임을 종료합니다");
                     break;
 
-                    default :
+                default:
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.WriteLine();
@@ -74,15 +74,15 @@ namespace TextProject
                     Thread.Sleep(1500); // 1.5초 동안 프로그램을 멈춤
                     Console.Clear();
                     RunGame();
-                    
+
                     break;
 
             }
-        } 
+        }
         void ChoiceMyPokemon()
         {
             Console.WriteLine("함께 여행을 할 포켓몬을 선택해주세요.");
             //포켓몬 고르는 로직 구현
-        }  
+        }
     }
 }

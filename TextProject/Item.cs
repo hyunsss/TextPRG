@@ -8,6 +8,8 @@ namespace TextProject
         void UseItem();
     }
 
+    //TODO 플레이어가 아이템을 UseItem을 했을 경우 아이템을 제거하기
+
     public class Item
     {
         protected string name;
@@ -68,6 +70,8 @@ namespace TextProject
 
         public SmallPotion()
         {
+            name = "작은 회복 포션";
+            Prize = 500;
             RecoveryHP = 30;
         }
         public void UseItem()
@@ -94,6 +98,8 @@ namespace TextProject
 
         public BigPotion()
         {
+            name = "큰 회복 포션";
+            Prize = 700;
             RecoveryHP = 50;
         }
         public void UseItem()
@@ -126,15 +132,14 @@ namespace TextProject
 
 
     }
-    
+
 }
 
 
 
-        /*
-        포켓몬 볼
-        작은 체력 회복
-        큰 체력 회복
-        상태이상 제거
-        */
-    
+/*
+포켓몬 볼
+작은 체력 회복
+큰 체력 회복
+상태이상 제거
+*/
