@@ -63,17 +63,10 @@ namespace TextProject
 
         }
     }
-
-    class SmallPotion : Item, IUseItem      //작은 회복 물약
+    class Potions : Item, IUseItem
     {
-        private int RecoveryHP;
+        protected int RecoveryHP;
 
-        public SmallPotion()
-        {
-            name = "작은 회복 포션";
-            Prize = 500;
-            RecoveryHP = 30;
-        }
         public void UseItem()
         {
             Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
@@ -91,36 +84,26 @@ namespace TextProject
             System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
         }
     }
-
-    class BigPotion : Item, IUseItem        //큰 회복 물약
+    class SmallPotion : Potions      //작은 회복 물약
     {
-        private int RecoveryHP;
+        public SmallPotion()
+        {
+            name = "작은 회복 포션";
+            Prize = 500;
+            RecoveryHP = 30;
+        }
+    }
 
+    class BigPotion : Potions        //큰 회복 물약
+    {
         public BigPotion()
         {
             name = "큰 회복 포션";
             Prize = 700;
             RecoveryHP = 50;
         }
-        public void UseItem()
-        {
-            Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
-            if (!poketmon.FallDown)
-            {        //기절 상태가 아닐 때
-                if (poketmon.hp + RecoveryHP > poketmon.fullHp)
-                {    // 기본 체력에서 물약을 먹었을 때 최대체력을 넘기는 경우
-                    poketmon.hp = poketmon.fullHp;
-                }
-                else if (poketmon.hp + RecoveryHP < poketmon.fullHp)
-                {     // 최대 체력을 안넘기는 경우
-                    poketmon.hp += RecoveryHP;
-                }
-            }
-            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
-        }
-
-
-        class WeirdCandy : Item, IUseItem
+    }
+    class WeirdCandy : Item, IUseItem
         {     //이상한 사탕
             public void UseItem()
             {
@@ -131,7 +114,20 @@ namespace TextProject
         }
 
 
+    public interface ItemProduct
+    {
+        Item CreateItem();
     }
+
+    public class PotionFactory : ItemProduct
+    {
+        public Item CreateItem()
+        {
+            return new Potions();
+        }
+    }
+
+
 
 }
 
