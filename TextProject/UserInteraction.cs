@@ -63,6 +63,7 @@ namespace TextProject
       System.Console.WriteLine("어서오세요! 포켓몬 상점입니다. 필요한 물건을 골라주세요");
       System.Console.WriteLine("플레이어 돈 : {0}", player.money);
 
+      System.Console.WriteLine("1. 작은 회복 포션");
       /*
       1. 작은 회복 포션
 
@@ -76,7 +77,20 @@ namespace TextProject
       */
     }
 
+    private void ItemStatus() {
+
+    }
+
+
+
   }
 
+  public class PoketmonCenter {
+    Pokemon1 poketmon;
+
+    public void GetPoketmon(Pokemon1 poketmon) {
+      this.poketmon = poketmon;
+    }
+  }
 
 }
