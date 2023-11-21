@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 
 namespace TextProject
 {
@@ -12,17 +13,19 @@ namespace TextProject
 
     public class Item
     {
+        protected string ItemMessage;
         protected string name;
         protected int Prize;
         protected Player player;
         protected Pokemon1 poketmon;
-        //protected Poketmon poketmon;
         public string GetName { get { return name; } }
         public int GetPrize { get { return Prize; } }
+        public string GetItemMessage { get { return ItemMessage; } }
         public Item()
         {
             name = "";
             Prize = 0;
+            ItemMessage = "아이테믄 아이템입니다.";
         }
 
         public void GetPlayer(Player User)
@@ -39,15 +42,15 @@ namespace TextProject
             // this.poketmon = GetPoketmon;
         }
 
-
     }
 
-    class Poketball : Item, IUseItem        //포켓 볼
+    public class Poketball : Item, IUseItem        //포켓 볼
     {
         public Poketball()
         {
             name = "포켓볼";
             Prize = 300;
+            ItemMessage = "아이템을 사용할 경우 일정 확률로 야생의 포켓몬을 인벤토리에 가져 올 수 있습니다.";
         }
 
         public void UseItem()
@@ -64,15 +67,15 @@ namespace TextProject
         }
     }
 
-    class SmallPotion : Item, IUseItem      //작은 회복 물약
+    public class SmallPotion : Item, IUseItem      //작은 회복 물약
     {
         private int RecoveryHP;
-
         public SmallPotion()
         {
             name = "작은 회복 포션";
             Prize = 500;
             RecoveryHP = 30;
+            ItemMessage = "아이템을 사용하면 현재 포켓몬 체력에서 30을 회복할 수 있습니다. 아이템 회복은 최대체력을 넘기지 못합니다.";
         }
         public void UseItem()
         {
@@ -92,7 +95,7 @@ namespace TextProject
         }
     }
 
-    class BigPotion : Item, IUseItem        //큰 회복 물약
+    public class BigPotion : Item, IUseItem        //큰 회복 물약
     {
         private int RecoveryHP;
 
@@ -101,6 +104,7 @@ namespace TextProject
             name = "큰 회복 포션";
             Prize = 700;
             RecoveryHP = 50;
+            ItemMessage = "아이템을 사용하면 현재 포켓몬 체력에서 50을 회복할 수 있습니다. 아이템 회복은 최대체력을 넘기지 못합니다.";
         }
         public void UseItem()
         {
@@ -120,19 +124,19 @@ namespace TextProject
         }
 
 
-        class WeirdCandy : Item, IUseItem
-        {     //이상한 사탕
-            public void UseItem()
-            {
-                //
-                poketmon.level++;           //1레벨 증가
-                                            //아이템을 사용한 뒤 포켓몬의 레벨에 따라 진화여부를 결정하는 함수 호출하기
-            }
-        }
-
-
     }
-
+    public class WeirdCandy : Item, IUseItem
+    {     //이상한 사탕
+        public WeirdCandy() {
+            ItemMessage = "아이템을 사용하면 포켓몬의 레벨업에 필요한 경험치를 얻을 수 있습니다!";
+        }
+        public void UseItem()
+        {
+            //
+            poketmon.level++;           //1레벨 증가
+                                        //아이템을 사용한 뒤 포켓몬의 레벨에 따라 진화여부를 결정하는 함수 호출하기
+        }
+    }
 }
 
 
