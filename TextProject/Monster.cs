@@ -6,34 +6,27 @@ using System.Threading.Tasks;
 
 namespace TextProject
 {
-    internal class Monster
+    internal class Monster : Pokemon
     {
-        public FullType Style { get; set; }
-        public string Name;
-        public string Roar;
-        public int Hp;
-        public int FullHp;
-        public int Level;
-        public int Damage;
-        public bool Death = false;
-        readonly Skill skill = new Skill();
 
-        public Monster(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
-        {
-            this.Style = fullType;
-            this.Name = Name;
-            this.Roar = Roar;
-            this.Hp = FullHp;
-            this.FullHp = FullHp;
-            this.Level = Level;
-            this.Damage = Damage;
-        }
         public void getcatch()
         {
-            Console.WriteLine("{0}에게 포켓몬볼을 던졌다", Name);
-            Console.WriteLine ("{0}이 울부짖으며 포켓몬볼에 들어갔다.{1}",Name, Roar);
-            Console.WriteLine("포켓몬을 획득했습니다!!");
+            Console.WriteLine("{0}에게 포켓몬볼을 던졌다", this.Name);
+            if (this.Hp < this.FullHp / 4)
+            {
+                Console.WriteLine("{0}이 울부짖으며 포켓몬볼에 들어갔다.{1}", this.Name, this.Roar);
+                Console.WriteLine("포켓몬을 획득했습니다!!");
+            }
+           else
+            {
+                Console.WriteLine("{0}이 포켓몬볼에서 튀어나왔다.", this.Name);
+            }
+            
            // Player.getPokemon(); // 포켓몬 획득 기믹 내일 얘기해 보고 힘들거 같으면 빼도 ㄱㅊ
+        }
+        public void getHp()
+        {
+            this.Hp = Hp;
         }
 
         public void Monster_death(Monster monster)
@@ -42,15 +35,12 @@ namespace TextProject
             Console.WriteLine("{0}.... 털썩", Roar);
             monster.Death = true;
         }
-        public void Monster_skill(Skill skill)
-        {
-            Console.WriteLine("{0}의 {1} 스킬 공격!", Name,skill.NameSkill );
-        }
+       
 
 
         class Metapod : Monster
         {
-            public Metapod(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Metapod(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
             {
                 fullType = FullType.Insect;
                 Name = "단데기";
@@ -64,7 +54,7 @@ namespace TextProject
 
         class Magikarp : Monster
         {
-            public Magikarp(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Magikarp(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
             {
                 fullType = FullType.Wind;
                 Name = "잉어킹";
@@ -77,7 +67,7 @@ namespace TextProject
         }
         class Pidgey : Monster
         {
-            public Pidgey(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Pidgey(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) 
             {
                 fullType = FullType.Wind;
                 Name = "피죤";
@@ -89,7 +79,7 @@ namespace TextProject
         }
         class Raticate : Monster
         {
-            public Raticate(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Raticate(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
             {
                 fullType = FullType.Fight;
                 Name = "레트라";
@@ -102,7 +92,7 @@ namespace TextProject
 
             class Machoke : Monster
         {
-            public Machoke(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Machoke(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
             {
                 fullType = FullType.Fight;
                 Name = "근육몬";
@@ -115,8 +105,8 @@ namespace TextProject
 
         class Growlithe : Monster
         {
-            public Growlithe(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
-            {
+            public Growlithe(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            { 
                 fullType = FullType.Fire;
                 Name = "가디";
                 Roar = "가디!";
@@ -127,7 +117,7 @@ namespace TextProject
         }
             class Dragonite : Monster
         {
-            public Dragonite(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) : base(fullType, Name, Roar, FullHp, Level, Damage)
+            public Dragonite(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
             {
                 fullType = FullType.Fire;
                 Name = "망나뇽";

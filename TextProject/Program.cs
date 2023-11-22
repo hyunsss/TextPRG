@@ -6,8 +6,9 @@ namespace TextProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("커밋 테스트");
-            Console.WriteLine("TextRPG를 만들자");
+           Pikachu pikachu = new Pikachu(FullType);
+           
+
         }
     }
 }
