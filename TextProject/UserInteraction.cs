@@ -1,5 +1,6 @@
 using System;
 using System.Formats.Asn1;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
 /*
@@ -125,7 +126,7 @@ namespace TextProject
   public class PoketmonCenter
   {
 
-    public void AllRecoveryPoketmon(List<Pokemon1> UserPoketmonList)
+    private void AllRecoveryPoketmon(List<Pokemon1> UserPoketmonList)
     {
 
       foreach (Pokemon1 UserPoketmon in UserPoketmonList)
@@ -135,72 +136,90 @@ namespace TextProject
       }
     }
 
+    private void RecoveryPoketmon(Pokemon1 UserPoketmon)
+    {
+      UserPoketmon.hp = UserPoketmon.fullHp;
+      System.Console.WriteLine("{0}의 체력을 완전히 회복시켰습니다!!", UserPoketmon);
+    }
+
     public void WelcomeCenter(List<Pokemon1> UserPoketmonList)
     {
-      System.Console.WriteLine("포켓몬 센터에 오신것을 환영합니다!");
-      System.Console.WriteLine("플레이어의 포켓몬 상태를 확인합니다. . . . .\n");
-
-      int A = 0, B = 0, C = 0, Perfect = 0;
-
-      foreach (Pokemon1 UserPoketmon in UserPoketmonList)
-      {
-        int PoketmonHpPercent = (UserPoketmon.hp / UserPoketmon.fullHp) * 100;
-
-        if (PoketmonHpPercent <= 30)
-        {
-          C++;
-        }
-        else if (PoketmonHpPercent <= 80 && PoketmonHpPercent > 30)
-        {
-          B++;
-        }
-        else if (PoketmonHpPercent > 80 && PoketmonHpPercent < 100)
-        {
-          A++;
-        }
-        else if (PoketmonHpPercent == 100)
-        {
-          Perfect++;
-        }
-      }
-      System.Console.WriteLine("현재 포켓몬 상태입니다.");
-      System.Console.WriteLine("다친 곳 없음 : {0}, 경상 : {1}, 중상 : {2}, 큰 부상 : {3}\n", Perfect, A, B, C);
-
-      foreach (Pokemon1 UserPoketmon in UserPoketmonList)
-      {
-        int i = 1;
-        System.Console.WriteLine("======= '순번 : {0}' =======", i);
-        System.Console.WriteLine("포켓몬의 이름 : {0}", UserPoketmon.name);
-        System.Console.WriteLine("현재 체력 : {0} / {1}\n", UserPoketmon.hp, UserPoketmon.fullHp);
-        i++;
-      }
-
-      System.Console.WriteLine("포켓몬을 모두 회복시키겠습니까? :: 1번");
-      System.Console.WriteLine("회복할 포켓몬을 선택할 수 있습니다. :: 2번");
-      int answer = int.Parse(Console.ReadLine());
-
-      if (answer == 1)
-      {
-        AllRecoveryPoketmon(UserPoketmonList);
-      }
-      else if (answer == 2)
+      
+      int answer = 0;
+      while (answer != 3)
       {
         answer = int.Parse(Console.ReadLine());
+        System.Console.WriteLine("포켓몬 센터에 오신것을 환영합니다!");
+        System.Console.WriteLine("플레이어의 포켓몬 상태를 확인합니다. . . . .\n");
 
-        if (answer <= UserPoketmonList.Count)
+        int A = 0, B = 0, C = 0, Perfect = 0;
+
+        foreach (Pokemon1 UserPoketmon in UserPoketmonList)          //포켓몬 체력의 비율에 따른 등급판정
         {
-          UserPoketmonList[answer - 1].hp = UserPoketmonList[answer - 1].fullHp;
-          System.Console.WriteLine("{0}의 체력을 완전히 회복시켰습니다!!", UserPoketmonList[answer - 1].name);
+          int PoketmonHpPercent = (UserPoketmon.hp / UserPoketmon.fullHp) * 100;
 
-        } else {
-          System.Console.WriteLine("플레이어의 포켓몬 리스트에 있는 포켓몬 번호보다 큰 값을 입력했습니다..");
+          if (PoketmonHpPercent <= 30)
+          {
+            C++;
+          }
+          else if (PoketmonHpPercent <= 80 && PoketmonHpPercent > 30)
+          {
+            B++;
+          }
+          else if (PoketmonHpPercent > 80 && PoketmonHpPercent < 100)
+          {
+            A++;
+          }
+          else if (PoketmonHpPercent == 100)
+          {
+            Perfect++;
+          }
+        }
+        System.Console.WriteLine("현재 포켓몬 상태입니다.");
+        System.Console.WriteLine("다친 곳 없음 : {0}, 경상 : {1}, 중상 : {2}, 큰 부상 : {3}\n", Perfect, A, B, C);  //현재 플레이어 포켓몬 리스트에서 체력 비율로 따진 포켓몬 들의 상태들을 카운트시킴
+
+        foreach (Pokemon1 UserPoketmon in UserPoketmonList)   //플레이어에게 현재 포켓몬 상태를 전부 표시
+        {
+          int i = 1;
+          System.Console.WriteLine("======= '순번 : {0}' =======", i);
+          System.Console.WriteLine("포켓몬의 이름 : {0}", UserPoketmon.name);
+          System.Console.WriteLine("현재 체력 : {0} / {1}\n", UserPoketmon.hp, UserPoketmon.fullHp);
+          i++;
+        }
+        //플레이어 answer ?
+        System.Console.WriteLine("포켓몬을 모두 회복시키겠습니까? :: 1번");
+        System.Console.WriteLine("회복할 포켓몬을 선택할 수 있습니다. :: 2번");
+        System.Console.WriteLine("포켓몬 센터 나가기 :: 3번");
+
+
+        if (answer == 1)
+        {
+          AllRecoveryPoketmon(UserPoketmonList);  //포켓몬 전부 회복 함수 Private
+        }
+        else if (answer == 2) //포켓몬을 선택해서 회복 하고자 할 경우
+        {
+          int ChoicePoketmon = int.Parse(Console.ReadLine());
+          if (ChoicePoketmon <= UserPoketmonList.Count) //입력한 번호가 리스트의 크기보다 넘지 않도록 예외처리
+          {
+            RecoveryPoketmon(UserPoketmonList[ChoicePoketmon - 1]); // 위에서 순번을 1부터 시작했기 때문에 -1을 해주어 올바른 인덱스 접근 유도
+          }
+          else
+          {    //예외 처리 잘못된 값을 입력했다면 알려주기
+            System.Console.WriteLine("플레이어의 포켓몬 리스트에 있는 포켓몬 번호보다 큰 값을 입력했습니다..");
+          }
+        }
+        else if (answer == 3)
+        {
+          System.Console.WriteLine("포켓몬 센터를 나갑니다..");
+          return;
+        }
+        else
+        {
+          System.Console.WriteLine("입력하신 번호가 맞지 않습니다.");
+          continue;
         }
       }
-      else
-      {
-        System.Console.WriteLine("입력하신 번호가 맞지 않습니다.");
-        WelcomeCenter(UserPoketmonList);
-      }
+
 
 
     }
