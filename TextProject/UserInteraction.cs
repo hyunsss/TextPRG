@@ -126,23 +126,23 @@ namespace TextProject
   public class PoketmonCenter
   {
 
-    private void AllRecoveryPoketmon(List<Pokemon1> UserPoketmonList)
+    private void AllRecoveryPoketmon(List<Poketmon> UserPoketmonList)
     {
 
-      foreach (Pokemon1 UserPoketmon in UserPoketmonList)
+      foreach (Poketmon UserPoketmon in UserPoketmonList)
       {
         //UserPoketmon.Hp = Userpoketmon.FullHp;
         System.Console.WriteLine("플레이어의 포켓몬 {0}이/가 완전히 회복되었습니다.,UserPoketmon.name");
       }
     }
 
-    private void RecoveryPoketmon(Pokemon1 UserPoketmon)
+    private void RecoveryPoketmon(Poketmon UserPoketmon)
     {
-      UserPoketmon.hp = UserPoketmon.fullHp;
+      UserPoketmon.Hp = UserPoketmon.FullHp;
       System.Console.WriteLine("{0}의 체력을 완전히 회복시켰습니다!!", UserPoketmon);
     }
 
-    public void WelcomeCenter(List<Pokemon1> UserPoketmonList)
+    public void WelcomeCenter(List<Poketmon> UserPoketmonList)
     {
       
       int answer = 0;
@@ -154,9 +154,9 @@ namespace TextProject
 
         int A = 0, B = 0, C = 0, Perfect = 0;
 
-        foreach (Pokemon1 UserPoketmon in UserPoketmonList)          //포켓몬 체력의 비율에 따른 등급판정
+        foreach (Poketmon UserPoketmon in UserPoketmonList)          //포켓몬 체력의 비율에 따른 등급판정
         {
-          int PoketmonHpPercent = (UserPoketmon.hp / UserPoketmon.fullHp) * 100;
+          int PoketmonHpPercent = (UserPoketmon.Hp / UserPoketmon.FullHp) * 100;
 
           if (PoketmonHpPercent <= 30)
           {
@@ -178,12 +178,12 @@ namespace TextProject
         System.Console.WriteLine("현재 포켓몬 상태입니다.");
         System.Console.WriteLine("다친 곳 없음 : {0}, 경상 : {1}, 중상 : {2}, 큰 부상 : {3}\n", Perfect, A, B, C);  //현재 플레이어 포켓몬 리스트에서 체력 비율로 따진 포켓몬 들의 상태들을 카운트시킴
 
-        foreach (Pokemon1 UserPoketmon in UserPoketmonList)   //플레이어에게 현재 포켓몬 상태를 전부 표시
+        foreach (Poketmon UserPoketmon in UserPoketmonList)   //플레이어에게 현재 포켓몬 상태를 전부 표시
         {
           int i = 1;
           System.Console.WriteLine("======= '순번 : {0}' =======", i);
-          System.Console.WriteLine("포켓몬의 이름 : {0}", UserPoketmon.name);
-          System.Console.WriteLine("현재 체력 : {0} / {1}\n", UserPoketmon.hp, UserPoketmon.fullHp);
+          System.Console.WriteLine("포켓몬의 이름 : {0}", UserPoketmon.Name);
+          System.Console.WriteLine("현재 체력 : {0} / {1}\n", UserPoketmon.Hp, UserPoketmon.FullHp);
           i++;
         }
         //플레이어 answer ?

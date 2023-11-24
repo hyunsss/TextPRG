@@ -17,7 +17,7 @@ namespace TextProject
         protected string name;
         protected int Prize;
         protected Player player;
-        protected Pokemon1 poketmon;
+        protected Poketmon poketmon;
         public string GetName { get { return name; } }
         public int GetPrize { get { return Prize; } }
         public string GetItemMessage { get { return ItemMessage; } }
@@ -35,7 +35,7 @@ namespace TextProject
             // this.player = GetPlayer();
         }
 
-        public void GetPoketmon(Pokemon1 pokemon1)
+        public void GetPoketmon(Poketmon pokemon1)
         {
             // TODO GetPoketmon
             this.poketmon = pokemon1;
@@ -80,18 +80,18 @@ namespace TextProject
         public void UseItem()
         {
             Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
-            if (!poketmon.FallDown)
+            if (!poketmon.Death)
             {        //기절 상태가 아닐 때
-                if (poketmon.hp + RecoveryHP > poketmon.fullHp)
+                if (poketmon.Hp + RecoveryHP > poketmon.FullHp)
                 {    // 기본 체력에서 물약을 먹었을 때 최대체력을 넘기는 경우
-                    poketmon.hp = poketmon.fullHp;
+                    poketmon.Hp = poketmon.FullHp;
                 }
-                else if (poketmon.hp + RecoveryHP < poketmon.fullHp)
+                else if (poketmon.Hp + RecoveryHP < poketmon.FullHp)
                 {     // 최대 체력을 안넘기는 경우
-                    poketmon.hp += RecoveryHP;
+                    poketmon.Hp += RecoveryHP;
                 }
             }
-            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
+            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.Hp);
         }
     }
 
@@ -109,18 +109,18 @@ namespace TextProject
         public void UseItem()
         {
             Console.WriteLine(" 작은 회복 물약을 사용합니다 !! ");
-            if (!poketmon.FallDown)
+            if (!poketmon.Death)
             {        //기절 상태가 아닐 때
-                if (poketmon.hp + RecoveryHP > poketmon.fullHp)
+                if (poketmon.Hp + RecoveryHP > poketmon.FullHp)
                 {    // 기본 체력에서 물약을 먹었을 때 최대체력을 넘기는 경우
-                    poketmon.hp = poketmon.fullHp;
+                    poketmon.Hp = poketmon.FullHp;
                 }
-                else if (poketmon.hp + RecoveryHP < poketmon.fullHp)
+                else if (poketmon.Hp + RecoveryHP < poketmon.FullHp)
                 {     // 최대 체력을 안넘기는 경우
-                    poketmon.hp += RecoveryHP;
+                    poketmon.Hp += RecoveryHP;
                 }
             }
-            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.hp);
+            System.Console.WriteLine("체력이 {0}이 되었습니다!!", poketmon.Hp);
         }
 
 
@@ -133,7 +133,7 @@ namespace TextProject
         public void UseItem()
         {
             //
-            poketmon.level++;           //1레벨 증가
+            poketmon.Level++;           //1레벨 증가
                                         //아이템을 사용한 뒤 포켓몬의 레벨에 따라 진화여부를 결정하는 함수 호출하기
         }
     }

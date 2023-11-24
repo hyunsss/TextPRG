@@ -20,7 +20,7 @@ namespace TextProject
         Insect = 8
     }
 
-    public abstract class Pokemon
+    public abstract class Poketmon
     {
         List<Skill> MySkills = new List<Skill>();
         public FullType fulltype;
@@ -55,7 +55,7 @@ namespace TextProject
             this.FullHp = this.Level * 5 + this.FullHp; // 되나?
             return FullHp;
         }
-        public static int GetDamage()
+        public int GetDamage()
         {
             this.Damage = this.Level * 10;
             return Damage;
@@ -69,7 +69,7 @@ namespace TextProject
                 Console.WriteLine("포켓몬이 기절했습니다.");
             }
         }
-        public void attacked_skill(Pokemon pokemon, Skill skill )
+        public void attacked_skill(Poketmon pokemon, Skill skill )
         {
             Console.WriteLine("{0} 의 {1} 공격!", pokemon.Name, skill.NameSkill);
             if (pokemon.fulltype == FullType.Fire)
@@ -133,7 +133,7 @@ namespace TextProject
         }
 
     }
-    public class Pikachu : Pokemon
+    public class Pikachu : Poketmon
     {
         public Pikachu(FullType fulltype, string Name, string Roar, int Hp, int Level, bool Death)
         {
@@ -145,7 +145,7 @@ namespace TextProject
             Death = false;
         }
     }
-    public class Fury_pikachu : Pokemon
+    public class Fury_pikachu : Poketmon
     {
         public Fury_pikachu(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -156,7 +156,7 @@ namespace TextProject
             Level = 10;
         }
     }
-    public class Bulbasaur : Pokemon
+    public class Bulbasaur : Poketmon
     {
         public Bulbasaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -167,7 +167,7 @@ namespace TextProject
             Level = 1;
         }
     }
-    public class Ivysaur : Pokemon
+    public class Ivysaur : Poketmon
     {
         public Ivysaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -178,7 +178,7 @@ namespace TextProject
             Level = 5;
         }
     }
-    public class Venusaur : Pokemon
+    public class Venusaur : Poketmon
     {
         public Venusaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -189,7 +189,7 @@ namespace TextProject
             Level = 7;
         }
     }
-    public class Charmander : Pokemon
+    public class Charmander : Poketmon
     {
         public Charmander(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -200,7 +200,7 @@ namespace TextProject
             Level = 1;
         }
     }
-    public class Charmeleon : Pokemon
+    public class Charmeleon : Poketmon
     {
         public Charmeleon(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -211,7 +211,7 @@ namespace TextProject
             Level = 5;
         }
     }
-    public class Charizard : Pokemon
+    public class Charizard : Poketmon
     {
         public Charizard(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -222,7 +222,7 @@ namespace TextProject
             Level = 7;
         }
     }
-    public class Squirtle : Pokemon
+    public class Squirtle : Poketmon
     {
         public Squirtle(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -233,7 +233,7 @@ namespace TextProject
             Level = 1;
         }
     }
-    public class Wartortle : Pokemon
+    public class Wartortle : Poketmon
     {
         public Wartortle(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {
@@ -244,7 +244,7 @@ namespace TextProject
             Level = 5;
         }
     }
-    public class Blastoise : Pokemon
+    public class Blastoise : Poketmon
     {
         public Blastoise(FullType fulltype, string Name, string Roar, int Hp, int Level)
         {

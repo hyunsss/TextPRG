@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TextProject
 {
-    internal class Monster : Pokemon
+    internal class Monster : Poketmon
     {
 
         public void getcatch()

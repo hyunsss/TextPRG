@@ -23,10 +23,10 @@ namespace TextProject
             this.TypeDamage = TypeDamage;
             this.pp = pp;
             this.PpMax = ppMax;
-            Damage = Pokemon.GetDamage();
+            Damage = Poketmon.GetDamage();
         }
 
-        public void GetSkill(Pokemon pokemon, Skill skill)
+        public void GetSkill(Poketmon pokemon, Skill skill)
         {
             if(pokemon.LevelUP() == 3)
             {
