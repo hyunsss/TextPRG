@@ -6,8 +6,8 @@ namespace TextProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("커밋 테스트");
-            Console.WriteLine("TextRPG를 만들자!!");
+            Gamemanager gamemanager = new Gamemanager();
+            gamemanager.RunGame();
 
 
         }
