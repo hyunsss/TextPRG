@@ -14,6 +14,7 @@ namespace TextProject
         public int pp;
         public int PpMax;
         public static int Damage;
+        Poketmon poketmon;
 
 
         public Skill(String name_skill, int TypeDamage, int damage_skill, int pp, int ppMax)
@@ -23,7 +24,7 @@ namespace TextProject
             this.TypeDamage = TypeDamage;
             this.pp = pp;
             this.PpMax = ppMax;
-            Damage = Poketmon.GetDamage();
+            Damage = poketmon.GetDamage();
         }
 
         public void GetSkill(Poketmon pokemon, Skill skill)
@@ -136,7 +137,11 @@ namespace TextProject
             new Skill("연옥",15,20,1,6),
             new Skill("플레어드라이브",20,25,1,3),
         };
+/*
+    레벨 낮을 때 : 
+    레벨 중간 :
 
+*/
 
         static Skill[] water_type_skill =
         {
