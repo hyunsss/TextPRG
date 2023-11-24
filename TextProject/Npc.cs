@@ -36,6 +36,13 @@ namespace TextProject
             }
             Console.WriteLine($"{pokemonCount}. 나가기");
             int choiceNum = int.Parse(Console.ReadLine());
+
+            switch (choiceNum)
+            {
+                case 0: 
+                    
+                    return;
+            }
           
             
         }
