@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Security;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,9 +22,9 @@ namespace TextProject
         Insect = 8
     }
 
-    public abstract class Poketmon
+    public class Poketmon
     {
-        List<Skill> MySkills = new List<Skill>();
+        public List<Skill> MySkills = new List<Skill>();
         public FullType fulltype;
         public string Name;
         public string Roar;
@@ -32,6 +34,7 @@ namespace TextProject
         public int Damage;
         public int Critical;
         public bool Death = false;
+
 
         public static void GetEnumName(int Value)
         {
@@ -131,128 +134,30 @@ namespace TextProject
         {
             attacked_skill(this, skill);
         }
+        public void LearnSkill(List<Skill> skills)
+        {
+            List<Skill> list = skills.FindAll((x) =>
+            x.skillType == fulltype && x.learnLevel.Item1 < Level &&
+                x.learnLevel.Item2 >= Level);
 
-    }
-    public class Pikachu : Poketmon
-    {
-        public Pikachu(FullType fulltype, string Name, string Roar, int Hp, int Level, bool Death)
-        {
-            fulltype = FullType.Thunder;
-            Name = "피카츄";
-            Roar = "피카피카";
-            Hp = FullHp;
-            Level = 1;
-            Death = false;
+            if (list.Count == 0)
+                return;
+
+            Console.WriteLine("\n선택 가능한 스킬 목록");
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {list[i].NameSkill}");
+            }
+
+
+
+            Console.WriteLine("입력");
+            string str = Console.ReadLine();
+
+
+            MySkills.Add(list[int.Parse(str) - 1]);
         }
     }
-    public class Fury_pikachu : Poketmon
-    {
-        public Fury_pikachu(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Thunder;
-            Name = "분노한 피카츄";
-            Roar = "우워어어";
-            Hp = FullHp;
-            Level = 10;
-        }
-    }
-    public class Bulbasaur : Poketmon
-    {
-        public Bulbasaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Glass;
-            Name = "이상해씨";
-            Roar = "이상해~";
-            Hp = FullHp;
-            Level = 1;
-        }
-    }
-    public class Ivysaur : Poketmon
-    {
-        public Ivysaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Glass;
-            Name = "이상해풀";
-            Roar = "풀풀~";
-            Hp = FullHp;
-            Level = 5;
-        }
-    }
-    public class Venusaur : Poketmon
-    {
-        public Venusaur(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Glass;
-            Name = "이상해꽃";
-            Roar = "꽃꽃~";
-            Hp = FullHp;
-            Level = 7;
-        }
-    }
-    public class Charmander : Poketmon
-    {
-        public Charmander(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Fire;
-            Name = "파이리";
-            Roar = "파이~리";
-            Hp = FullHp;
-            Level = 1;
-        }
-    }
-    public class Charmeleon : Poketmon
-    {
-        public Charmeleon(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Fire;
-            Name = "리자드";
-            Roar = "리자~드";
-            Hp = FullHp;
-            Level = 5;
-        }
-    }
-    public class Charizard : Poketmon
-    {
-        public Charizard(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Fire;
-            Name = "리자몽";
-            Roar = "리자~몽";
-            Hp = FullHp;
-            Level = 7;
-        }
-    }
-    public class Squirtle : Poketmon
-    {
-        public Squirtle(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Water;
-            Name = "꼬부기";
-            Roar = "꼬북꼬북";
-            Hp = FullHp;
-            Level = 1;
-        }
-    }
-    public class Wartortle : Poketmon
-    {
-        public Wartortle(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Water;
-            Name = "어니부기";
-            Roar = "어니어니";
-            Hp = FullHp;
-            Level = 5;
-        }
-    }
-    public class Blastoise : Poketmon
-    {
-        public Blastoise(FullType fulltype, string Name, string Roar, int Hp, int Level)
-        {
-            fulltype = FullType.Water;
-            Name = "거북왕";
-            Roar = "거북~왕";
-            Hp = FullHp;
-            Level = 7;
-        }
-    }
+    
+    
 }
