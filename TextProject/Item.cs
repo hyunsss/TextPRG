@@ -13,6 +13,19 @@ namespace TextProject
 
     public class Item
     {
+     public  List<Item> items = new List<Item>();
+        Poketball poketball;
+        SmallPotion smallPotion;
+        BigPotion bigPotion;
+        WeirdCandy weirdCandy;
+
+        public void itemList()
+        {
+            items.Add(poketball);
+            items.Add(smallPotion);
+            items.Add(bigPotion);
+            items.Add(weirdCandy);
+        }
         protected string ItemMessage;
         protected string name;
         protected int Prize;

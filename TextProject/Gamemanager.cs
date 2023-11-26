@@ -9,14 +9,24 @@ namespace TextProject
     internal class Gamemanager
     {
         string gameName = "Pokemon World";
-
+          public bool isGameOver = false;
+        Npc npc;
+        ODoctor oDoctor;
+        Nurse nurse;
+        JangChungGymNpc jangChungGymNpc;
+        GoyangGymNpc goyangGymNpc;
+        SeoulGymNpc seoulGymNpc;
+        Merchant merchant;
+        public int gotoGymCount = 0;
+      
+     
         public void RunGame()
         {
             StartDisplay();
             StartOrExit();
 
         }
-        void StartDisplay()
+     void StartDisplay()
         {
             Console.Clear();
             Console.WriteLine("**********************************************************************************************");
@@ -63,6 +73,7 @@ namespace TextProject
 
                 case 2:
                     Console.WriteLine("게임을 종료합니다");
+                    isGameOver = true;
                     break;
 
                 default:
@@ -83,6 +94,56 @@ namespace TextProject
         {
             Console.WriteLine("함께 여행을 할 포켓몬을 선택해주세요.");
             //포켓몬 고르는 로직 구현
+        }
+
+        public void WhereToGO()
+        {
+            Console.WriteLine("어디로 갈지 선택해주세요.");
+            Console.WriteLine("1. 체육관");
+            Console.WriteLine("2. 포켓몬 센터");
+            Console.WriteLine("3. 포켓몬 병원");
+            Console.WriteLine("4. 상점");
+            Console.WriteLine("5. 게임 종료");
+            string playerInput = Console.ReadLine();
+           
+            if(int.TryParse(playerInput, out int choice))
+            {
+                switch (choice)
+                {
+                    case 1:
+                   if(gotoGymCount == 0) 
+                        {
+                            jangChungGymNpc.NpcCommet();
+                            gotoGymCount++;
+                        }
+                   else if(gotoGymCount == 1) 
+                        {
+                            goyangGymNpc.NpcCommet();
+                            gotoGymCount++;
+                        }
+                   else
+                        {
+                            seoulGymNpc.NpcCommet();
+                        }
+                    break;
+
+                    case 2:
+                        oDoctor.NpcCommet();
+                        break;
+
+                    case 3:
+                        nurse.NpcCommet();
+                        break;
+                        
+                    case 4:
+                        merchant.NpcCommet();
+                        break;
+                    default: 
+                        Console.WriteLine("잘못 입력하셨습니다. 다시 입력해주세요.");
+                        break;
+                       
+                }
+            }
         }
     }
 }

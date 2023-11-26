@@ -22,6 +22,7 @@ namespace TextProject
 
     public abstract class Poketmon
     {
+        
         List<Skill> MySkills = new List<Skill>();
         public FullType fulltype;
         public string Name;
