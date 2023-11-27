@@ -126,7 +126,7 @@
                 Name = "분노한 피카츄";
                 Roar = "우워어어";
                 Hp = FullHp;
-                Level = 10;
+                Level = 7;
             }
         }
         public class Bulbasaur : PlayerPokemon
@@ -148,7 +148,7 @@
                 Name = "이상해풀";
                 Roar = "풀풀~";
                 Hp = FullHp;
-                Level = 5;
+                Level = 3;
             }
         }
         public class Venusaur : PlayerPokemon
@@ -159,7 +159,7 @@
                 Name = "이상해꽃";
                 Roar = "꽃꽃~";
                 Hp = FullHp;
-                Level = 7;
+                Level = 6;
             }
         }
         public class Charmander : PlayerPokemon
@@ -181,7 +181,7 @@
                 Name = "리자드";
                 Roar = "리자~드";
                 Hp = FullHp;
-                Level = 5;
+                Level = 3;
             }
         }
         public class Charizard : PlayerPokemon
@@ -192,7 +192,7 @@
                 Name = "리자몽";
                 Roar = "리자~몽";
                 Hp = FullHp;
-                Level = 7;
+                Level = 6;
             }
         }
         public class Squirtle : PlayerPokemon
@@ -214,7 +214,7 @@
                 Name = "어니부기";
                 Roar = "어니어니";
                 Hp = FullHp;
-                Level = 5;
+                Level = 3;
             }
         }
         public class Blastoise : PlayerPokemon
@@ -225,7 +225,7 @@
                 Name = "거북왕";
                 Roar = "거북~왕";
                 Hp = FullHp;
-                Level = 7;
+                Level = 6;
             }
         }
         //여기부터 몬스터

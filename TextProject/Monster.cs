@@ -35,6 +35,7 @@ namespace TextProject
             Console.WriteLine("{0}.... 털썩", Roar);
             monster.Death = true;
         }
+        
 
     }
 }

@@ -34,6 +34,7 @@ namespace TextProject
         public int Damage;
         public int Critical;
         public bool Death = false;
+        public int[] evol = {1,1};
 
 
         public static void GetEnumName(int Value)
@@ -51,6 +52,7 @@ namespace TextProject
         public int LevelUP()
         {
             this.Level = +1;
+            Evolve();
             return Level;
         }
         public int GetFullHP()
@@ -157,6 +159,56 @@ namespace TextProject
 
 
             MySkills.Add(list[int.Parse(str) - 1]);
+        }
+        public void Evolve()
+        {
+            Poketmon poketmon = new Poketmon();
+            if (poketmon.LevelUP() == 3 && this.evol[0] == 1)
+            {
+                
+                Console.WriteLine("오잉? {0}의 상태가?",this.Name );
+                Thread.Sleep(500);
+                Console.WriteLine("축하합니다!");
+                Console.Write("당신의 {0}이/가" ,this.Name);
+                Thread.Sleep(500);
+                if (Name == "이상해씨")
+                {
+                    
+                }
+                else if (Name == "파이리")
+                {
+
+                }
+                else if (Name == "꼬부기")
+                {
+
+                }
+                Console.Write(" { 1}로 진화했습니다!" ,poketmon.Name);
+                this.evol[0] = 0;
+
+            }
+            else if (LevelUP() == 6 && this.evol[1] == 1)
+            {
+                Console.WriteLine("오잉? {0}의 상태가?", this.Name);
+                Thread.Sleep(500);
+                Console.WriteLine("축하합니다!");
+                Console.Write("당신의 {0}이/가", this.Name);
+                Thread.Sleep(500);
+                if (Name == "이상해풀")
+                {
+                    
+                }
+                else if (Name == "리자드")
+                {
+
+                }
+                else if (Name == "어니부기")
+                {
+
+                }
+                Console.WriteLine(" {1}로 진화했습니다!", Name);
+                this.evol[1] = 0;
+            }
         }
     }
 
