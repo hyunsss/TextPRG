@@ -34,7 +34,7 @@ namespace TextProject
             if(poketmon.LevelUP() == 3 && poketmon.learnSkill[0] == 1 )
             {
                 // 스킬 종류를 보여준다
-                if(poketmon.fulltype.Equals(poketmon.))
+                if(poketmon.fulltype.Equals())
                 {
 
                 }

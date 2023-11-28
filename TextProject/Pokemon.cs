@@ -35,13 +35,10 @@ namespace TextProject
         public int Critical;
         public bool Death = false;
         public int[] evol = {1,1};
-<<<<<<< HEAD
         public int[] myturn = { 1 };
-=======
-       
+
 
         Poketmon[] poketmons = {}
->>>>>>> 03952a8f33897622737428a5006592c8076855dc
 
 
         public static void GetEnumName(int Value)
@@ -180,28 +177,16 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가" ,this.Name);
                 Thread.Sleep(500);
-<<<<<<< HEAD
-                if (this.Name.Equals( "이상해씨"))
-=======
-                if (this.Name == "이상해씨")
->>>>>>> 03952a8f33897622737428a5006592c8076855dc
+                if (Name == "이상해씨")
                 {
                     Ivysaur Ivysaur = new Ivysaur();
                     
                 }
-<<<<<<< HEAD
-                else if (this.Name.Equals("파이리"))
+                else if (Name == "파이리")
                 {
 
                 }
-                else if (this.Name.Equals("꼬부기"))
-=======
-                else if (this.Name == "파이리")
-                {
-
-                }
-                else if (this.Name == "꼬부기")
->>>>>>> 03952a8f33897622737428a5006592c8076855dc
+                else if (Name == "꼬부기")
                 {
 
                 }
@@ -216,27 +201,15 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가", this.Name);
                 Thread.Sleep(500);
-<<<<<<< HEAD
-                if (this.Name.Equals("이상해풀"))
+                if (Name == "이상해풀")
                 {
                     
                 }
-                else if (this.Name.Equals("리자드"))
+                else if (Name == "리자드")
                 {
 
                 }
-                else if (this.Name.Equals( "어니부기"))
-=======
-                if (this.Name == "이상해풀")
-                {
-                    
-                }
-                else if (this.Name == "리자드")
-                {
-
-                }
-                else if (this.Name == "어니부기")
->>>>>>> 03952a8f33897622737428a5006592c8076855dc
+                else if (Name == "어니부기")
                 {
 
                 }
