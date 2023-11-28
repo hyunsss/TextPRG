@@ -179,7 +179,9 @@ namespace TextProject
                 Thread.Sleep(500);
                 if (Name == "이상해씨")
                 {
-                    Ivysaur Ivysaur = new Ivysaur();
+                    
+                    Ivysaur ivysaur = new Ivysaur();
+                    ivysaur.Name = 
                     
                 }
                 else if (Name == "파이리")
