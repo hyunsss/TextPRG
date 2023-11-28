@@ -35,6 +35,98 @@ namespace TextProject
             Console.WriteLine("{0}.... 털썩", Roar);
             monster.Death = true;
         }
+       
+
+
+        class Metapod : Monster
+        {
+            public Metapod(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            {
+                fullType = FullType.Insect;
+                Name = "단데기";
+                Roar = "....딱";
+                FullHp = 70;
+                Level = 3;
+                Damage = 2;
+            }
+        }
+
+
+        class Magikarp : Monster
+        {
+            public Magikarp(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            {
+                fullType = FullType.Wind;
+                Name = "잉어킹";
+                Roar = "잉잉~";
+                FullHp = 20;
+                Level = 2;
+                Damage = 2;
+            }
+
+        }
+        class Pidgey : Monster
+        {
+            public Pidgey(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage) 
+            {
+                fullType = FullType.Wind;
+                Name = "피죤";
+                Roar = "피죤~";
+                FullHp = 20;
+                Level = 2;
+                Damage = 2;
+            }
+        }
+        class Raticate : Monster
+        {
+            public Raticate(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            {
+                fullType = FullType.Fight;
+                Name = "레트라";
+                Roar = "레트!";
+                FullHp = 50;
+                Level = 3;
+                Damage = 6;
+            }
+        }
+
+            class Machoke : Monster
+        {
+            public Machoke(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            {
+                fullType = FullType.Fight;
+                Name = "근육몬";
+                Roar = "근육~근육";
+                FullHp = 70;
+                Level = 5;
+                Damage = 25;
+            }
+        }
+
+        class Growlithe : Monster
+        {
+            public Growlithe(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            { 
+                fullType = FullType.Fire;
+                Name = "가디";
+                Roar = "가디!";
+                FullHp = 80;
+                Level = 6;
+                Damage = 35;
+            }
+        }
+            class Dragonite : Monster
+        {
+            public Dragonite(FullType fullType, string Name, string Roar, int FullHp, int Level, int Damage)
+            {
+                fullType = FullType.Fire;
+                Name = "망나뇽";
+                Roar = "뇽~";
+                FullHp = 100;
+                Level = 7;
+                Damage = 55;
+            }
+        }
 
     }
 }
