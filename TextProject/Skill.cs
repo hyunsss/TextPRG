@@ -28,6 +28,19 @@ namespace TextProject
             this.PpMax = ppMax;
             this.learnLevel = learnLevel;
         }
+
+        public void learnSkill(PlayerPokemon poketmon)
+        { 
+            if(poketmon.LevelUP() == 3 && poketmon.learnSkill[0] == 1 )
+            {
+                // 스킬 종류를 보여준다
+                if(poketmon.fulltype.Equals(poketmon.))
+                {
+
+                }
+            }
+
+        }
         //    public Skill GetSkill(Poketmon pokemon, Skill skill)
         //{
         //    Console.WriteLine("배우고 싶은 스킬을 선택하세요");
