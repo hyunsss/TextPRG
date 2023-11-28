@@ -22,7 +22,7 @@ namespace TextProject
         Insect = 8
     }
 
-    public class Poketmon
+    public abstract class Poketmon
     {
         public List<Skill> MySkills = new List<Skill>();
         public FullType fulltype;
@@ -35,7 +35,13 @@ namespace TextProject
         public int Critical;
         public bool Death = false;
         public int[] evol = {1,1};
+<<<<<<< HEAD
         public int[] myturn = { 1 };
+=======
+       
+
+        Poketmon[] poketmons = {}
+>>>>>>> 03952a8f33897622737428a5006592c8076855dc
 
 
         public static void GetEnumName(int Value)
@@ -165,7 +171,7 @@ namespace TextProject
         }
         public void Evolve()
         {
-            Poketmon poketmon = new Poketmon();
+            PlayerPokemon poketmon = new PlayerPokemon();
             if (poketmon.LevelUP() == 3 && this.evol[0] == 1)
             {
                 
@@ -174,15 +180,28 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가" ,this.Name);
                 Thread.Sleep(500);
+<<<<<<< HEAD
                 if (this.Name.Equals( "이상해씨"))
+=======
+                if (this.Name == "이상해씨")
+>>>>>>> 03952a8f33897622737428a5006592c8076855dc
                 {
+                    Ivysaur Ivysaur = new Ivysaur();
                     
                 }
+<<<<<<< HEAD
                 else if (this.Name.Equals("파이리"))
                 {
 
                 }
                 else if (this.Name.Equals("꼬부기"))
+=======
+                else if (this.Name == "파이리")
+                {
+
+                }
+                else if (this.Name == "꼬부기")
+>>>>>>> 03952a8f33897622737428a5006592c8076855dc
                 {
 
                 }
@@ -197,6 +216,7 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가", this.Name);
                 Thread.Sleep(500);
+<<<<<<< HEAD
                 if (this.Name.Equals("이상해풀"))
                 {
                     
@@ -206,6 +226,17 @@ namespace TextProject
 
                 }
                 else if (this.Name.Equals( "어니부기"))
+=======
+                if (this.Name == "이상해풀")
+                {
+                    
+                }
+                else if (this.Name == "리자드")
+                {
+
+                }
+                else if (this.Name == "어니부기")
+>>>>>>> 03952a8f33897622737428a5006592c8076855dc
                 {
 
                 }

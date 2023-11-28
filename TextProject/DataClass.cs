@@ -1,7 +1,8 @@
 ﻿namespace TextProject
 {
-    internal class Dataclass
+    public class Dataclass
     {
+        
         public void Data(string[] args)
         {
             PlayerPokemon plpo = new PlayerPokemon();
@@ -90,19 +91,19 @@
                 Console.Write($"{t.NameSkill}");
             }
         }
-        // 여기부터 포켓몬
-        //--------------------------------------------------------------------------------------------------------
-        //--------------------------------------------------------------------------------------------------------
-        public class PlayerPokemon : Poketmon
+    }
+    // 여기부터 포켓몬
+    //--------------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------
+   
+    public class PlayerPokemon : Poketmon
         {
-            public PlayerPokemon()
+        
+        Skill[] skill = new Skill[3];
+        public int[] learnSkill = { 1, 1, 1, };
+        public PlayerPokemon()
             {
-                fulltype = FullType.None;
-                Name = "";
-                Roar = "";
-                Hp = FullHp;
-                Level = 1;
-                Death = false;
+
             }
         }
 
@@ -318,3 +319,4 @@
             }
         }
     }
+
