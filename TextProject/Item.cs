@@ -55,15 +55,28 @@ namespace TextProject
 
         public void UseItem()
         {
-            /*
-            //일정 체력의 이하가 될 수록 잡힐 확률이 증가.
-            
+            //Todo 1 : 포켓몬 객체 정보를 가져온다.
+           int[] Percent = {0,0,0,0,0,0,1,1,1,1};
 
-            //유저 포켓몬 인벤토리 리스트에 하나를 추가하기
-            poketmon = GetPoketmon();
-            ex) Poketmonlist.Add(poketmon);
-            */
-
+           Random rand = new Random();
+           int Lucky = rand.Next(0, 9);
+           System.Console.WriteLine("포켓몬 볼을 던졌습니다!!");
+          
+           if(Percent[Lucky] == 1) {
+               System.Console.WriteLine("포켓몬을 잡았습니다!");
+               //Todo 2 객체 정보를 플레이어 포켓몬 리스트에 넣는다.
+               //player.MyPokemon.Add();
+           } else {
+               System.Console.WriteLine("포켓볼을 던졌으나 빠져나와버렸습니다");
+               return;
+           }
+           /*
+           //일정 체력의 이하가 될 수록 잡힐 확률이 증가.
+           Todo List.
+           //유저 포켓몬 인벤토리 리스트에 하나를 추가하기
+           poketmon = GetPoketmon();
+           ex) Poketmonlist.Add(poketmon);
+           */
         }
     }
 
