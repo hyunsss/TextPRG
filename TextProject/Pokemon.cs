@@ -38,7 +38,7 @@ namespace TextProject
         public int[] myturn = { 1 };
 
 
-        Poketmon[] poketmons = {}
+        
 
 
         public static void GetEnumName(int Value)
@@ -139,8 +139,6 @@ namespace TextProject
 
         public void Attack_skill(Skill skill)
         {
-            
-            if ()
             attacked_skill(this, skill);
         }
         public void LearnSkill(List<Skill> skills)
@@ -158,13 +156,62 @@ namespace TextProject
                 Console.WriteLine($"{i + 1}. {list[i].NameSkill}");
             }
 
-
-
             Console.WriteLine("입력");
             string str = Console.ReadLine();
 
 
             MySkills.Add(list[int.Parse(str) - 1]);
+        }
+        public void choicePok(int choice, List<Skill> skills)
+        {
+            this.MySkills[0] = skills[1];
+            for (int i = 1; i <= 3; i++)
+                this.MySkills[i] = skills[0];
+            if (choice == 1)
+            {
+                Bulbasaur bulbasaur = new Bulbasaur();
+                this.fulltype = bulbasaur.fulltype ;
+                this.Name = bulbasaur.Name;
+                this.Roar = bulbasaur.Roar;
+                this.Hp = FullHp;
+                this.Damage = bulbasaur.Damage;
+                this.Level = 1;
+            }
+            else if (choice == 2)
+            {
+                Charmander charmander = new Charmander();
+                this.fulltype = charmander.fulltype;
+                this.Name = charmander.Name;
+                this.Roar = charmander.Roar;
+                this.Hp = charmander.Hp;
+                this.FullHp = charmander.FullHp;
+                this.Damage = charmander.Damage;
+                this.Level = 1;
+
+            }
+            else if (choice == 3)
+            {
+                Squirtle squirtle = new Squirtle();
+                this.fulltype = squirtle.fulltype;
+                this.Name = squirtle.Name;
+                this.Roar = squirtle.Roar;
+                this.Hp = squirtle.Hp;
+                this.FullHp = squirtle.FullHp;
+                this.Damage = squirtle.Damage;
+                this.Level = 1;
+
+            }
+            else if (choice == 4)
+            {
+                Pikachu pikachu = new Pikachu();
+                this.fulltype = pikachu.fulltype;
+                this.Name = pikachu.Name;
+                this.Roar = pikachu.Roar;
+                this.Hp = pikachu.Hp;
+                this.FullHp = pikachu.FullHp;
+                this.Damage = pikachu.Damage;
+                this.Level = 1;
+            }
         }
         public void Evolve()
         {
@@ -177,22 +224,37 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가" ,this.Name);
                 Thread.Sleep(500);
-                if (Name == "이상해씨")
+                if (this.Name == "이상해씨")
                 {
-                    
                     Ivysaur ivysaur = new Ivysaur();
-                    ivysaur.Name = 
-                    
-                }
-                else if (Name == "파이리")
-                {
+                    this.fulltype = ivysaur.fulltype;
+                    this.Name = ivysaur.Name;
+                    this.Roar = ivysaur.Roar;
+                    this.Hp = ivysaur.Hp;
+                    this.FullHp = ivysaur.FullHp;
 
                 }
-                else if (Name == "꼬부기")
+                else if (this.Name == "파이리")
                 {
+                    Charmeleon charmeleon = new Charmeleon();
+                    this.fulltype = charmeleon.fulltype;
+                    this.Name = charmeleon.Name;
+                    this.Roar = charmeleon.Roar;
+                    this.Hp = charmeleon.Hp;
+                    this.FullHp = charmeleon.FullHp;
 
                 }
-                Console.Write(" { 1}로 진화했습니다!" ,poketmon.Name);
+                else if (this.Name == "꼬부기")
+                {
+                    Wartortle wartortle = new Wartortle();
+                    this.fulltype = wartortle.fulltype;
+                    this.Name = wartortle.Name;
+                    this.Roar = wartortle.Roar;
+                    this.Hp = wartortle.Hp;
+                    this.FullHp = wartortle.FullHp;
+
+                }
+                Console.Write(" { 1}로 진화했습니다!" ,this.Name);
                 this.evol[0] = 0;
 
             }
@@ -203,18 +265,46 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가", this.Name);
                 Thread.Sleep(500);
-                if (Name == "이상해풀")
+                if (this.Name == "이상해풀")
                 {
-                    
+                    Venusaur venusaur = new Venusaur();
+                    this.fulltype = venusaur.fulltype;
+                    this.Name = venusaur.Name;
+                    this.Roar = venusaur.Roar;
+                    this.Hp = venusaur.Hp;
+                    this.FullHp = venusaur.FullHp;
                 }
-                else if (Name == "리자드")
+                else if (this.Name == "리자드")
                 {
+                    Charizard Charizard = new Charizard();
+                    this.fulltype = Charizard.fulltype;
+                    this.Name = Charizard.Name;
+                    this.Roar = Charizard.Roar;
+                    this.Hp = Charizard.Hp;
+                    this.FullHp = Charizard.FullHp;
 
                 }
-                else if (Name == "어니부기")
+                else if (this.Name == "어니부기")
                 {
-
+                    Blastoise Blastoise = new Blastoise();
+                    this.fulltype = Blastoise.fulltype;
+                    this.Name = Blastoise.Name;
+                    this.Roar = Blastoise.Roar;
+                    this.Hp = Blastoise.Hp;
+                    this.FullHp = Blastoise.FullHp;
                 }
+                else if (this.Name == "피카츄")
+                {
+                    Fury_pikachu pikachu = new Fury_pikachu();
+                    this.Level = pikachu.Level;
+                    this.fulltype = pikachu.fulltype;
+                    this.Name = pikachu.Name;
+                    this.Roar = pikachu.Roar;
+                    this.Hp = pikachu.Hp;
+                    this.FullHp = pikachu.FullHp;
+                    Console.WriteLine("피카츄는 라이츄로 진화하여 2레벨이 더 올랐습니다!");
+                }
+
                 Console.WriteLine(" {1}로 진화했습니다!", Name);
                 this.evol[1] = 0;
             }

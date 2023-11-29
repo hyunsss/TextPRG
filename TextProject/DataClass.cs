@@ -9,6 +9,8 @@
 
             List<Skill> skills = new List<Skill>();
 
+            skills.Add(new Skill(" ", FullType.None, 0, 0 , 0, 0, (0, 0)));
+
             skills.Add(new Skill("기본", FullType.None, plpo.Damage, plpo.Damage * 2, 1, 100, (0, 1)));
 
             skills.Add(new Skill("불꽃세례", FullType.Fire, 7, 9, 1, 6, (1, 3))); // 불타입
@@ -124,10 +126,10 @@
             public Fury_pikachu()
             {
                 fulltype = FullType.Thunder;
-                Name = "분노한 피카츄";
-                Roar = "우워어어";
+                Name = "라이츄";
+                Roar = "라이츄";
                 Hp = FullHp;
-                Level = 7;
+                Level = 8;
             }
         }
         public class Bulbasaur : PlayerPokemon
