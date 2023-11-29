@@ -31,9 +31,14 @@ namespace TextProject
 
         public void Monster_death(Monster monster)
         {
+            if (monster.Death) 
+            {
+                return;
+            }
             Console.WriteLine("{0}를 쓰러트렸다!!", Name);
             Console.WriteLine("{0}.... 털썩", Roar);
             monster.Death = true;
+            
         }
         
 

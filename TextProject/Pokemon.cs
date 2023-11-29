@@ -255,6 +255,7 @@ namespace TextProject
 
                 }
                 Console.Write(" { 1}로 진화했습니다!" ,this.Name);
+                Console.WriteLine($"{this.Roar}");
                 this.evol[0] = 0;
 
             }
@@ -306,6 +307,7 @@ namespace TextProject
                 }
 
                 Console.WriteLine(" {1}로 진화했습니다!", Name);
+                Console.WriteLine($"{this.Roar}");
                 this.evol[1] = 0;
             }
         }

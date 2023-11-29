@@ -127,7 +127,7 @@
             {
                 fulltype = FullType.Thunder;
                 Name = "라이츄";
-                Roar = "라이츄";
+                Roar = "라이츄~";
                 Hp = FullHp;
                 Level = 8;
             }
