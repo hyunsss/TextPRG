@@ -182,7 +182,7 @@ namespace TextProject
                 Console.WriteLine("축하합니다!");
                 Console.Write("당신의 {0}이/가", mypo.Name);
                 Thread.Sleep(500);
-                if (mypo.Name == "이상해풀")
+                if (Mypoketmon.IndexOf(0).Name == "이상해풀")
                 {
                     Mypoketmon.RemoveAt(0);
                     Mypoketmon.Add(new Venusaur());
