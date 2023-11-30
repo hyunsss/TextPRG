@@ -1,11 +1,30 @@
-﻿namespace TextProject
+﻿using System.Xml.Linq;
+
+namespace TextProject
 {
     public class Dataclass
     {
-        
+        private static Dataclass instance;
+
+        public static Dataclass Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Dataclass();
+                }
+                return instance;
+            }
+        } 
+        private Dataclass()
+        {
+
+        }
         public void Data(string[] args)
         {
             PlayerPokemon plpo = new PlayerPokemon();
+
 
             List<Skill> skills = new List<Skill>();
 
@@ -91,6 +110,104 @@
             foreach (var t in plpo.MySkills)
             {
                 Console.Write($"{t.NameSkill}");
+            }
+
+        }
+        List<Poketmon> Mypoketmon = new List<Poketmon>();
+        
+
+        PlayerPokemon mypo = new PlayerPokemon();
+
+        public void ChoicePoketmon(int choice)
+        {
+            mypo.MySkills[0] = skills[1];
+            for (int i = 1; i <= 3; i++)
+                mypo.MySkills[i] = skills[0];
+            if (choice == 1)
+            {
+                Mypoketmon.Add(new Bulbasaur());
+            }
+            else if (choice == 2)
+            {
+                Mypoketmon.Add(new Charmander());
+
+            }
+            else if (choice == 3)
+            {
+                Mypoketmon.Add(new Squirtle());
+
+            }
+            else if (choice == 4)
+            {
+                Mypoketmon.Add(new Pikachu());
+            }
+        }
+        public void Evolve()
+        {
+            PlayerPokemon poketmon = new PlayerPokemon();
+            if (poketmon.LevelUP() == 3 && poketmon.evol[0] == 1)
+            {
+
+                Console.WriteLine("오잉? {0}의 상태가?", mypo.Name);
+                Thread.Sleep(500);
+                Console.WriteLine("축하합니다!");
+                Console.Write("당신의 {0}이/가", mypo.Name);
+                Thread.Sleep(500);
+                if (mypo.Name == "이상해씨")
+                {
+
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Ivysaur());
+
+                }
+                else if (mypo.Name == "파이리")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Charmeleon());
+                }
+                else if (mypo.Name == "꼬부기")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Wartortle());
+                }
+                Console.Write(" { 1}로 진화했습니다!", mypo.Name);
+                Console.WriteLine($"{mypo.Roar}");
+                mypo.evol[0] = 0;
+
+            }
+            else if (mypo.LevelUP() == 6 && mypo.evol[1] == 1)
+            {
+                Console.WriteLine("오잉? {0}의 상태가?", mypo.Name);
+                Thread.Sleep(500);
+                Console.WriteLine("축하합니다!");
+                Console.Write("당신의 {0}이/가", mypo.Name);
+                Thread.Sleep(500);
+                if (mypo.Name == "이상해풀")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Venusaur());
+                }
+                else if (mypo.Name == "리자드")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Charizard());
+
+                }
+                else if (mypo.Name == "어니부기")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Blastoise());
+                }
+                else if (mypo.Name == "피카츄")
+                {
+                    Mypoketmon.RemoveAt(0);
+                    Mypoketmon.Add(new Fury_pikachu());
+                    Console.WriteLine("피카츄는 라이츄로 진화하여 2레벨이 더 올랐습니다!");
+                }
+
+                Console.WriteLine(" {1}로 진화했습니다!", mypo.Name);
+                Console.WriteLine($"{mypo.Roar}");
+                mypo.evol[1] = 0;
             }
         }
     }

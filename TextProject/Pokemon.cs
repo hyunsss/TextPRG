@@ -162,8 +162,7 @@ namespace TextProject
 
             MySkills.Add(list[int.Parse(str) - 1]);
         }
-        
-        
+
     }
 
 
